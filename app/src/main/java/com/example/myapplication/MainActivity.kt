@@ -81,7 +81,7 @@ class MainActivity : ComponentActivity() {
                 )
 
 
-                   // MyCardExample("titulo","ksadugbaskdçvbasidvbasçidv asçkbasljvdaisidyv askçdbaskçdbasid \n iqewugqipeurgipewr",false)
+                // MyCardExample("titulo","ksadugbaskdçvbasidvbasçidv asçkbasljvdaisidyv askçdbaskçdbasid \n iqewugqipeurgipewr",false)
 
 
                 //ViewCards(lista)
@@ -94,11 +94,11 @@ class MainActivity : ComponentActivity() {
 
 
 
-                   // Greeting(name = "lucas")
-                }
+                // Greeting(name = "lucas")
             }
         }
     }
+}
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
@@ -182,7 +182,7 @@ fun MyCardExample(
     }
 }
 
-        data class Usuario(
+data class Usuario(
     val id: Int,
     val nome: String,
     val telefone: String
@@ -309,7 +309,7 @@ fun ColoredButton(){
         shape = RoundedCornerShape(8.dp)
     ) {
 
-            Text(text = "botão")
+        Text(text = "botão")
 
 
     }
@@ -367,7 +367,7 @@ fun Counter(){
 @Composable
 fun CounterGame() {
     var count by remember { mutableIntStateOf(0) }
-    val target = remember { (100..150).random() }
+    val target = remember { (50..100).random() }
     var hasGivenUp by remember { mutableStateOf(false) } // State to track if the user has given up
     var gameEnded by remember { mutableStateOf(false) } // State to track if the game has ended
 
@@ -379,9 +379,6 @@ fun CounterGame() {
         count >= target / 3 -> R.drawable.image2
         else -> R.drawable.image1
     }
-    Column(
-        modifier = Modifier
-            .fillMaxSize()){}
 
     Column(
 
