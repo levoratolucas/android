@@ -63,21 +63,21 @@ class MainActivity : ComponentActivity() {
                 // SimpleBox(300)
                 val lista = listOf(
                     Usuario(1,"Lucas Matheus Levorato Santos","41999113006"),
-                    Usuario(2,"Lucas Matheus Levorato Santos","41999113006"),
+                    Usuario(2,"Guilherme Rodrigues","41999999999"),
                     Usuario(3,"Lucas Matheus Levorato Santos","41999113006"),
-                    Usuario(4,"Lucas Matheus Levorato Santos","41999113006"),
+                    Usuario(4,"Guilherme Rodrigues","41999999999"),
                     Usuario(1,"Lucas Matheus Levorato Santos","41999113006"),
                     Usuario(2,"Lucas Matheus Levorato Santos","41999113006"),
-                    Usuario(3,"Lucas Matheus Levorato Santos","41999113006"),
-                    Usuario(4,"Lucas Matheus Levorato Santos","41999113006"),
+                    Usuario(3,"Guilherme Rodrigues","41999999999"),
+                    Usuario(4,"João Pedro Capoani","41988888888"),
                     Usuario(1,"Lucas Matheus Levorato Santos","41999113006"),
                     Usuario(2,"Lucas Matheus Levorato Santos","41999113006"),
-                    Usuario(3,"Lucas tos","41999113006"),
+                    Usuario(3,"João Pedro Capoani","41988888888"),
                     Usuario(4,"Lucas Matheus Levorato Santos","41999113006"),
-                    Usuario(1,"Lucas Matheus Levorato Santos","41999113006"),
+                    Usuario(1,"João Pedro Capoani","41988888888"),
                     Usuario(2,"Lucas Matheus Levorato Santos","41999113006"),
-                    Usuario(3,"Lucas Matheus Levorato Santos","41999113006"),
-                    Usuario(4,"Lucas Matheus ","41999113006")
+                    Usuario(3,"João Pedro Capoani","41988888888"),
+                    Usuario(4,"Guilherme Rodrigues","41999999999")
                 )
 
 
@@ -367,14 +367,13 @@ fun Counter(){
 @Composable
 fun CounterGame() {
     var count by remember { mutableIntStateOf(0) }
-    val target = remember { (50..100).random() }
-    var hasGivenUp by remember { mutableStateOf(false) } // State to track if the user has given up
-    var gameEnded by remember { mutableStateOf(false) } // State to track if the game has ended
+    val target = remember { (20..40).random() }
+    var hasGivenUp by remember { mutableStateOf(false) }
+    var gameEnded by remember { mutableStateOf(false) }
 
-    // Determine which image to show based on the current count and if the user has given up
     val imageResource = when {
-        hasGivenUp -> R.drawable.image5 // Show the "give up" image
-        count >= target -> R.drawable.image4 // Show the final image if the target is reached
+        hasGivenUp -> R.drawable.image5
+        count >= target -> R.drawable.image4
         count >= target * 2 / 3 -> R.drawable.image3
         count >= target / 3 -> R.drawable.image2
         else -> R.drawable.image1
@@ -385,7 +384,7 @@ fun CounterGame() {
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
-        verticalArrangement = Arrangement.SpaceBetween, // Space between items in the column
+        verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
@@ -402,7 +401,7 @@ fun CounterGame() {
             Button(
                 onClick = {
                     count++
-                    if (count >= target) gameEnded = true // End the game if target is reached
+                    if (count >= target) gameEnded = true
                 },
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
                 shape = RoundedCornerShape(8.dp)
@@ -427,7 +426,7 @@ fun CounterGame() {
                 Button(
                     onClick = {
                         hasGivenUp = true
-                        gameEnded = true // End the game if the user gives up
+                        gameEnded = true
                     },
                     colors = ButtonDefaults.buttonColors(containerColor = Color.Red),
                     shape = RoundedCornerShape(8.dp)
@@ -442,7 +441,7 @@ fun CounterGame() {
                     onClick = {
                         count = 0
                         hasGivenUp = false
-                        gameEnded = false // Reset the game state
+                        gameEnded = false
                     },
                     colors = ButtonDefaults.buttonColors(containerColor = Color.Green),
                     shape = RoundedCornerShape(8.dp)
